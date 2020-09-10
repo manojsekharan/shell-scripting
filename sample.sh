@@ -1,4 +1,12 @@
+#!/bin/bash
 
-hai how are you? Vaibhav
+USERID=$(id -u)
 
-hai this is manoj
+case $USER_ID in
+0)
+  echo "Starting installation"
+  ;;
+1)
+  echo -e "\e[32mYou should be root user to perform this script[0m"
+  ;;
+esac
