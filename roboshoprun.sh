@@ -75,7 +75,7 @@ FRONTEND () {
   fi
 }
 
-case $i in
+case $1 in
   frontend)
   FRONTEND "frontend" "https://dev.azure.com/DevOps-Batches/
   ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/db389ddc-b576-4fd9-be14-b373d943d6ee
