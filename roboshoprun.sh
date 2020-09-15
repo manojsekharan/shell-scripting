@@ -51,11 +51,11 @@ FRONTEND () {
   systemctl start nginx
   Status_Check
   Print "Downloading frontend app"
-  curl -s -L -o /tmp/frontend.zip $1
+  curl -s -L -o /tmp/$1.zip "$2"
   Status_Check
   cd /usr/share/nginx/html
   rm -rf *
-  unzip -o /tmp/frontend.zip
+  unzip -o /tmp/$1.zip
   Status_Check
   mv static/* .
   rm -rf static README.md
@@ -77,11 +77,7 @@ FRONTEND () {
 
 case $1 in
   frontend)
-  FRONTEND "https://dev.azure.com/DevOps-Batches/
-  ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/db389ddc-b576-4fd9-be14-b373d943d6ee
-  /items?path=%2F&versionDescriptor%5BversionOptions%5D=0&
-  versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=
-  master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
+  FRONTEND "frontend" "https://dev.azure.com/DevOps-Batches/ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/db389ddc-b576-4fd9-be14-b373d943d6ee/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
   ;;
 esac
 
