@@ -37,7 +37,7 @@ Create_user (){
   if  [ $? -ne 0 ]; then
   Print "Application user added"
   useradd roboshop
-  Status_check
+  Status_Check
   fi
 }
 
