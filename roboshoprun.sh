@@ -51,7 +51,7 @@ FRONTEND () {
   systemctl start nginx
   Status_Check
   Print "Downloading frontend app"
-  curl -s -L -o /tmp/$1 $2
+  curl -s -L -o /tmp/$1.zip $2
   Status_Check
   cd /usr/share/nginx/html
   rm -rf *
