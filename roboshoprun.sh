@@ -68,11 +68,11 @@ FRONTEND () {
   if [ -e /etc/nginx/nginx.conf ]; then
     sed -i -e "s/CATALOGUE/${CATALOGUE}/" -e "s/CART/${CART}/" -e "s/USER/${USER}/" -e "s/SHIPPING/${SHIPPING}/" -e "s/PAYMENT/
     ${PAYMENT}/" /etc/nginx/nginx.conf
+  fi
   Print "Starting Nginx"
   systemctl enable nginx
   systemctl restart nginx
   Status_Check
-  fi
 }
 
 case $1 in
