@@ -67,7 +67,7 @@ FRONTEND () {
   export PAYMENT=payment.${DNS_DOMAIN_NAME}
   if [ -e /etc/nginx/nginx.conf ]; then
     sed -i -e "s/CATALOGUE/$CATALOGUE/" -e "s/CART/$CART/" -e "s/USER/$USER/" -e "s/SHIPPING/$SHIPPING/" -e "s/PAYMENT/
-    $PAYMENT/"
+    $PAYMENT/" /etc/nginx/nginx.conf
   Print "Starting Nginx"
   systemctl enable nginx
   systemctl restart nginx
