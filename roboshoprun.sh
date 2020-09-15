@@ -12,7 +12,7 @@ USER_ID=$(id -u)
 #    esac
 
 if [ USER_ID -eq 0 ]; then
-  echo -e  "\e[33mStarting installation"
+  echo -e  "\e[33mStarting installation\e[0m"
 else
   echo -e "\e[33mYou have to be root to execute the command\e[0m"
 fi
