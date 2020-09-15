@@ -36,7 +36,7 @@ Create_user (){
   id roboshop
   if  [ $? -ne 0 ]; then
   Print "Application user added"
-  useradd roboshop
+  useradd roboshop 2>&1 > /dev/null
   Status_Check
   fi
 }
