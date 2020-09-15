@@ -2,6 +2,8 @@
 
 USER_ID=$(id -u)
 
+DNS_NAME="devops143.tk"
+
 #case $USER_ID in
 #    0)
 #     echo -e "\e[33mStarting installation\e[0m"
@@ -41,6 +43,45 @@ Create_user (){
   fi
 }
 
-Create_user
+FRONTEND () {
+  Print "Installing Nginx"
+  yum install nginx -y
+  Status_Check
+  systemctl enable nginx
+  systemctl start nginx
+  Status_Check
+  Print "Downloading frontend app"
+  curl -s -L -o $i
+  Status_Check
+  cd /usr/share/nginx/html
+  rm -rf *
+  unzip -o /tmp/frontend.zip
+  Status_Check
+  mv static/* .
+  rm -rf static README.md
+  mv template.conf /etc/nginx/nginx.conf
+  export CATALOGUE=catalogue.${DNS_DOMAIN_NAME}
+  export CART=cart.${DNS_DOMAIN_NAME}
+  export USER=user.${DNS_DOMAIN_NAME}
+  export SHIPPING=shipping.${DNS_DOMAIN_NAME}
+  export PAYMENT=payment.${DNS_DOMAIN_NAME}
+  if [ -e /etc/nginx/nginx.conf ]; then
+    sed -i -e "s/CATALOGUE/$CATALOGUE" -e "s/CART/$CART" -e "s/USER/$USER" -e "s/SHIPPING/$SHIPPING" -e "s/PAYMENT/
+    $PAYMENT"
+  Print "Starting Nginx"
+  systemctl enable nginx
+  systemctl restart nginx
+  Status_Check
+}
+
+case $i in
+  frontend)
+  FRONTEND "/tmp/frontend.zip "https://dev.azure.com/DevOps-Batches/
+  ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/db389ddc-b576-4fd9-be14-b373d943d6ee
+  /items?path=%2F&versionDescriptor%5BversionOptions%5D=0&
+  versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=
+  master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
+  ;;
+esac
 
 
