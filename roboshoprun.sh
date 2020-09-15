@@ -2,7 +2,7 @@
 
 USER_ID=$(id -u)
 
-DNS_NAME="devops143.tk"
+DNS_DOMAIN_NAME="devops143.tk"
 
 #case $USER_ID in
 #    0)
