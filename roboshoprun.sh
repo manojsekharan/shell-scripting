@@ -72,6 +72,7 @@ FRONTEND () {
   systemctl enable nginx
   systemctl restart nginx
   Status_Check
+  fi
 }
 
 case $i in
