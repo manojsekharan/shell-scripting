@@ -51,7 +51,7 @@ FRONTEND () {
   systemctl start nginx
   Status_Check
   Print "Downloading frontend app"
-  curl -s -L -o $i
+  curl -s -L -o /tmp/$1 $2
   Status_Check
   cd /usr/share/nginx/html
   rm -rf *
@@ -77,7 +77,7 @@ FRONTEND () {
 
 case $i in
   frontend)
-  FRONTEND "/tmp/frontend.zip "https://dev.azure.com/DevOps-Batches/
+  FRONTEND "frontend" "https://dev.azure.com/DevOps-Batches/
   ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/db389ddc-b576-4fd9-be14-b373d943d6ee
   /items?path=%2F&versionDescriptor%5BversionOptions%5D=0&
   versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=
